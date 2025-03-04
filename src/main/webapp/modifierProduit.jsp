@@ -1,36 +1,62 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Produit" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Edit Product</title>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
-<h1>Edit Product</h1>
-<c:if test="${not empty produit}">
-    <form action="produits?action=update" method="post">
-        <input type="hidden" name="id" value="${produit.id}">
 
-        <label for="nom">Name:</label>
-        <input type="text" id="nom" name="nom" value="${produit.nom}" required><br><br>
+<%
+    Object user = session.getAttribute("user");
+    if (user != null) {
+%>
+<a href="ajouterProduit.jsp">Add Product</a>
+<a href="auth">Logout</a>
+<%
+    }
+%>
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description">${produit.description}</textarea><br><br>
+<h2>Product List</h2>
 
-        <label for="prix">Price:</label>
-        <input type="number" id="prix" name="prix" value="${produit.prix}" step="0.01" required><br><br>
+<%-- Boucle pour afficher les produits --%>
+<%
+    List<Produit> produits = (List<Produit>) request.getAttribute("produits");
+    if (produits != null) {
+%>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    <%
+        for (Produit produit : produits) {
+    %>
+    <tr>
+        <td><%= produit.getNom() %></td>
+        <td><%= produit.getPrix() %></td>
+        <td>
+            <a href="produits?action=details&id=<%= produit.getId() %>">Details</a>
+            <a href="produits?action=delete&id=<%= produit.getId() %>" onclick="return confirm('Are you sure?');">Delete</a>
+        </td>
+    </tr>
+    <%
+        }
+    %>
+</table>
+<%
+    }
+%>
 
-        <label for="image">Image URL:</label>
-        <input type="text" id="image" name="image" value="${produit.image}"><br><br>
-
-        <button type="submit">Update Product</button>
-    </form>
-</c:if>
-
-<c:if test="${empty produit}">
-    <p style="color: red;">Product not found.</p>
-</c:if>
-
-<p><a href="produits">Back to Product List</a></p>
 </body>
 </html>

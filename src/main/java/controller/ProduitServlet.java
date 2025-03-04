@@ -32,6 +32,9 @@ public class ProduitServlet extends HttpServlet {
                 case "delete":
                     deleteProduit(request, response);
                     break;
+                case "details":  // New case for showing details
+                    showDetails(request, response);
+                    break;
                 default:
                     listProduits(request, response);
                     break;
@@ -73,7 +76,7 @@ public class ProduitServlet extends HttpServlet {
     private void listProduits(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("produits", produitDAO.getAllProduits());
-        request.getRequestDispatcher("/listeProduits.jsp").forward(request, response);  // Fixed this line
+        request.getRequestDispatcher("/listeProduits.jsp").forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
@@ -127,6 +130,19 @@ public class ProduitServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         produitDAO.deleteProduit(id);
         response.sendRedirect("produits");
+    }
+
+    private void showDetails(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Produit produit = produitDAO.getProduitById(id);
+
+        if (produit != null) {
+            request.setAttribute("produit", produit);
+            request.getRequestDispatcher("/detailsProduit.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("produits");  // Redirect if product not found
+        }
     }
 
     private void populateProduitFromRequest(Produit produit, HttpServletRequest request) {

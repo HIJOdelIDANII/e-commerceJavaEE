@@ -8,11 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProduitServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProduitServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProduitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProduitDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ajouterProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ajouterProduit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/detailsProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detailsProduit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/listeProduits.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/listeProduits.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/modifierProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modifierProduit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,5 +120,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
