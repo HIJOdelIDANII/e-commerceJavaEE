@@ -25,21 +25,22 @@
 <p class="error"><%= error %></p>
     <% } %>
 
-<form action="produits?action=add" method="post" enctype="multipart/form-data">
-    <label for="nom">Product Name:</label>
-    <input type="text" id="nom" name="nom" required>
+<form action="produits" method="post">
+    <label for="nom">Product Name</label>
+    <input type="text" id="nom" name="nom" required />
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" required></textarea>
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" required />
 
-    <label for="prix">Price (€):</label>
-    <input type="number" id="prix" name="prix" step="0.01" required>
+    <label for="prix">Price</label>
+    <input type="text" id="prix" name="prix" required />
 
-    <label for="image">Product Image:</label>
-    <input type="file" id="image" name="image" accept="image/*">
+    <label for="image">Image URL</label>
+    <input type="text" id="image" name="image" />
 
     <button type="submit">Add Product</button>
 </form>
+
 
 <p><a href="produits">Back to Product List</a></p>
 

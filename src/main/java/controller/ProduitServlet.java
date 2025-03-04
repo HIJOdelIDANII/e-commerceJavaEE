@@ -2,6 +2,7 @@ package controller;
 
 import dao.ProduitDAO;
 import model.Produit;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -19,6 +20,7 @@ public class ProduitServlet extends HttpServlet {
         String action = request.getParameter("action");
         HttpSession session = request.getSession(false);
 
+        // Ensure user is logged in
         if (session == null || session.getAttribute("user") == null) {
             response.sendRedirect("login.jsp");
             return;
@@ -32,7 +34,7 @@ public class ProduitServlet extends HttpServlet {
                 case "delete":
                     deleteProduit(request, response);
                     break;
-                case "details":  // New case for showing details
+                case "details":  // New case for showing product details
                     showDetails(request, response);
                     break;
                 default:
@@ -73,12 +75,14 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
+    // Display all products
     private void listProduits(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("produits", produitDAO.getAllProduits());
         request.getRequestDispatcher("/listeProduits.jsp").forward(request, response);
     }
 
+    // Show the edit form for a specific product
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -91,13 +95,14 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
+    // Add a new product
     private void addProduit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         Produit produit = new Produit();
         populateProduitFromRequest(produit, request);
 
         if (isValidProduit(produit)) {
-            produitDAO.addProduit(produit);
+            produitDAO.addProduit1(produit);
             response.sendRedirect("produits");
         } else {
             request.setAttribute("error", "Invalid product data");
@@ -105,6 +110,7 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
+    // Update an existing product
     private void updateProduit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -125,6 +131,7 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
+    // Delete a product
     private void deleteProduit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -132,6 +139,7 @@ public class ProduitServlet extends HttpServlet {
         response.sendRedirect("produits");
     }
 
+    // Show product details
     private void showDetails(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -145,21 +153,31 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
+    // Populate the product object with data from the form
     private void populateProduitFromRequest(Produit produit, HttpServletRequest request) {
         produit.setNom(request.getParameter("nom"));
         produit.setDescription(request.getParameter("description"));
-        try {
-            produit.setPrix(Double.parseDouble(request.getParameter("prix")));
-        } catch (NumberFormatException e) {
-            produit.setPrix(0.0);
+
+        String prixStr = request.getParameter("prix");
+        if (prixStr != null && !prixStr.trim().isEmpty()) {
+            try {
+                produit.setPrix(Double.parseDouble(prixStr));
+            } catch (NumberFormatException e) {
+                produit.setPrix(0.0);  // Set default value if invalid
+            }
+        } else {
+            produit.setPrix(0.0);  // Set default value if empty
         }
+
         produit.setImage(request.getParameter("image"));
     }
 
+    // Validate product data
     private boolean isValidProduit(Produit produit) {
-        return !produit.getNom().isEmpty() && produit.getPrix() > 0;
+        return produit.getNom() != null && !produit.getNom().trim().isEmpty() && produit.getPrix() > 0;
     }
 
+    // Error handling method
     private void handleError(HttpServletRequest request, HttpServletResponse response, Exception e)
             throws ServletException, IOException {
         e.printStackTrace();

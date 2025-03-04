@@ -48,6 +48,7 @@
         <td class="actions">
             <a href="produits?action=details&id=<%= produit.getId() %>">Details</a>
             <a href="produits?action=delete&id=<%= produit.getId() %>" onclick="return confirm('Are you sure?');">Delete</a>
+            <a href="produits?action=edit&id=<%= produit.getId() %>">Edit</a>
         </td>
     </tr>
     <% } %>

@@ -62,24 +62,43 @@ public class ProduitDAO {
     }
 
     // Add a new product
-    public void addProduit(Produit produit) throws SQLException {
+    public void addProduit1(Produit produit) throws SQLException {
         String sql = "INSERT INTO produits (nom, description, prix, image) VALUES (?, ?, ?, ?)";
+
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
+            // Set parameters in the PreparedStatement
             stmt.setString(1, produit.getNom());
             stmt.setString(2, produit.getDescription());
             stmt.setDouble(3, produit.getPrix());
             stmt.setString(4, produit.getImage());
-            stmt.executeUpdate();
 
-            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    produit.setId(generatedKeys.getInt(1));
+            // Execute the update (INSERT statement)
+            int rowsAffected = stmt.executeUpdate();
+
+            // If insert was successful, get the generated keys
+            if (rowsAffected > 0) {
+                try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        // Set the generated product ID
+                        produit.setId(generatedKeys.getInt(1));
+                    }
                 }
+            } else {
+                // If no rows were affected, throw an exception
+                throw new SQLException("Inserting product failed, no rows affected.");
             }
+
+        } catch (SQLException e) {
+            // Log the error for debugging purposes
+            System.err.println("Error while inserting product: " + e.getMessage());
+
+            // Rethrow the exception with a more specific message
+            throw new SQLException("Failed to add product due to database error", e);
         }
     }
+
 
     // Update an existing product
     public void updateProduit(Produit produit) throws SQLException {
