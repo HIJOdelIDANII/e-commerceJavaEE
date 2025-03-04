@@ -5,24 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7ee899a-e93a-41aa-9335-5e7d04b9b651" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AuthServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProduitServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProduitServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RegisterServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProduitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProduitDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Produit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Produit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ajouterProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ajouterProduit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/detailsProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detailsProduit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/listeProduits.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/listeProduits.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/modifierProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modifierProduit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/db.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +58,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Smart Tomcat.configDemo.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "fixdriver",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -123,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1741033693268</updated>
       <workItem from="1741033694532" duration="3716000" />
-      <workItem from="1741037440926" duration="12117000" />
+      <workItem from="1741037440926" duration="14594000" />
     </task>
     <servers />
   </component>

@@ -19,7 +19,6 @@ public class ProduitServlet extends HttpServlet {
         String action = request.getParameter("action");
         HttpSession session = request.getSession(false);
 
-        // Redirect unauthenticated users
         if (session == null || session.getAttribute("user") == null) {
             response.sendRedirect("login.jsp");
             return;
@@ -74,7 +73,7 @@ public class ProduitServlet extends HttpServlet {
     private void listProduits(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("produits", produitDAO.getAllProduits());
-        request.getRequestDispatcher("/listeProduits.jsp").forward(request, response);
+        request.getRequestDispatcher("/listeProduits.jsp").forward(request, response);  // Fixed this line
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
