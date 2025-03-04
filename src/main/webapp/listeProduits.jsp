@@ -1,16 +1,27 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: SidAhmed
-  Date: 04/03/2025
-  Time: 12:32 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>Product List</title>
 </head>
 <body>
-
+<c:if test="${not empty sessionScope.user}">
+    <a href="ajouterProduit.jsp">Add Product</a>
+    <a href="auth">Logout</a>
+</c:if>
+<table>
+    <c:forEach items="${produits}" var="produit">
+        <tr>
+            <td>${produit.nom}</td>
+            <td>${produit.prix}</td>
+            <td>
+                <c:if test="${not empty sessionScope.user}">
+                    <a href="modifierProduit.jsp?id=${produit.id}">Edit</a>
+                </c:if>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>
