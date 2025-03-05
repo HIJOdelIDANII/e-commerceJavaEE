@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class UserDAO {
 
-    // Method to find a user by username
+
     public User findUserByUsername(String username) {
         User user = null;
         String sql = "SELECT * FROM users WHERE username = ?";
@@ -31,7 +31,7 @@ public class UserDAO {
         return user;
     }
 
-    // Method to create a new user
+
     public boolean createUser(User user) {
         String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
         String sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
@@ -48,8 +48,6 @@ public class UserDAO {
             return false;
         }
     }
-
-    // Method to validate user credentials
     public boolean validateUser(String username, String password) {
         User user = findUserByUsername(username);
         return user != null && BCrypt.checkpw(password, user.getPassword());

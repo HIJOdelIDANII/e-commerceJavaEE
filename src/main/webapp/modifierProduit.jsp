@@ -26,7 +26,7 @@
 
 <form action="produits" method="post">
     <input type="hidden" name="action" value="update" /> <!-- Action to identify that we are updating a product -->
-    <input type="hidden" name="id" value="<%= produit.getId() %>" /> <!-- Pass product ID to identify which product to update -->
+    <input type="hidden" name="id" value="<%= produit.getId() %>" />
 
     <label for="nom">Product Name</label>
     <input type="text" id="nom" name="nom" value="<%= produit.getNom() %>" required />
@@ -40,7 +40,7 @@
     <label for="image">Image URL</label>
     <input type="text" id="image" name="image" value="<%= produit.getImage() %>" placeholder="Image URL" />
 
-    <button type="submit">Update Product</button> <!-- Update button -->
+    <button type="submit">Update Product</button>
 
 </form>
 

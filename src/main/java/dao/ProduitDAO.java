@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ProduitDAO {
 
-    // Use the DB class to manage the database connection
+
     private Connection getConnection() throws SQLException {
         return DB.getConnection();  // Fetch the connection from DB.java
     }
 
-    // Get all products
+
     public List<Produit> getAllProduits() {
         List<Produit> produits = new ArrayList<>();
         String sql = "SELECT * FROM produits";
@@ -38,7 +38,7 @@ public class ProduitDAO {
         return produits;
     }
 
-    // Get product by ID
+
     public Produit getProduitById(int id) {
         String sql = "SELECT * FROM produits WHERE id = ?";
         try (Connection conn = getConnection();
@@ -62,7 +62,6 @@ public class ProduitDAO {
         return null;
     }
 
-    // Add a new product
     public void addProduit1(Produit produit) throws SQLException {
         String sql = "INSERT INTO produits (nom, description, prix, image) VALUES (?, ?, ?, ?)"; // dw ?? are placeholders
 
@@ -105,7 +104,7 @@ public class ProduitDAO {
     }
 
 
-    // Update an existing product
+
     public void updateProduit(Produit produit) throws SQLException {
         String sql = "UPDATE produits SET nom = ?, description = ?, prix = ?, image = ? WHERE id = ?";
         try (Connection conn = getConnection();
@@ -120,7 +119,7 @@ public class ProduitDAO {
         }
     }
 
-    // Delete a product
+
     public void deleteProduit(int id) throws SQLException {
         String sql = "DELETE FROM produits WHERE id = ?";
         try (Connection conn = getConnection();
