@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ee899a-e93a-41aa-9335-5e7d04b9b651" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProduitServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProduitServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProduitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProduitDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ajouterProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ajouterProduit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/listeProduits.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/listeProduits.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/modifierProduit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modifierProduit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/create_database.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -56,7 +52,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Smart Tomcat.configDemo.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fixdriver&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -112,6 +108,9 @@
       <updated>1741033693268</updated>
       <workItem from="1741033694532" duration="3716000" />
       <workItem from="1741037440926" duration="14594000" />
+      <workItem from="1741102577802" duration="132000" />
+      <workItem from="1741168329055" duration="2154000" />
+      <workItem from="1741170540819" duration="1428000" />
     </task>
     <servers />
   </component>
