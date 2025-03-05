@@ -1,5 +1,4 @@
-
---CREATE DATABASE IF NOT EXISTS ecommerce;-- the first line kinda zeyed ken bech testamel docker container
+CREATE DATABASE IF NOT EXISTS ecommerce;
 USE ecommerce;
 
 

@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class DB {
 
     // Database credentials
-    private static final String URL = "jdbc:mysql://localhost:3306/ecommerce";
+    private static final String URL = "jdbc:mysql://localhost:3333/ecommerce";
     private static final String USER = "root";
-    private static final String PASSWORD = "chess1";
+    private static final String PASSWORD = "root";
 
     // Static block to register the MySQL JDBC driver
     static {

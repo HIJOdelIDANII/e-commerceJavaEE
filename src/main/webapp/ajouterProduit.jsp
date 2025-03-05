@@ -6,7 +6,7 @@
     <title>Add Product</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
-        form { max-width: 400px; margin: auto; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; }
+        form { max-width: 500px; margin: auto; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; }
         input, textarea, button { width: 100%; padding: 10px; margin: 10px 0; }
         button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
         button:hover { background-color: #45a049; }
@@ -26,6 +26,7 @@
     <% } %>
 
 <form action="produits" method="post">
+    <input type="hidden" name="action" value="add" />
     <label for="nom">Product Name</label>
     <input type="text" id="nom" name="nom" required />
 

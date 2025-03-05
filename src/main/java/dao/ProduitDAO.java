@@ -21,6 +21,7 @@ public class ProduitDAO {
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
+            System.out.println("get out");
 
             while (rs.next()) {
                 Produit p = new Produit();
@@ -63,7 +64,7 @@ public class ProduitDAO {
 
     // Add a new product
     public void addProduit1(Produit produit) throws SQLException {
-        String sql = "INSERT INTO produits (nom, description, prix, image) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO produits (nom, description, prix, image) VALUES (?, ?, ?, ?)"; // dw ?? are placeholders
 
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -79,8 +80,12 @@ public class ProduitDAO {
 
             // If insert was successful, get the generated keys
             if (rowsAffected > 0) {
+                System.out.println("debug 00");
+
                 try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                    System.out.println("debug 01");
                     if (generatedKeys.next()) {
+                        System.out.println("debug 02");
                         // Set the generated product ID
                         produit.setId(generatedKeys.getInt(1));
                     }
