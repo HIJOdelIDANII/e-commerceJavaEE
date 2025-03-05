@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ee899a-e93a-41aa-9335-5e7d04b9b651" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/create_database.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -110,7 +112,7 @@
       <workItem from="1741037440926" duration="14594000" />
       <workItem from="1741102577802" duration="132000" />
       <workItem from="1741168329055" duration="2154000" />
-      <workItem from="1741170540819" duration="1428000" />
+      <workItem from="1741170540819" duration="4022000" />
     </task>
     <servers />
   </component>
