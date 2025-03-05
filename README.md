@@ -4,7 +4,6 @@ This is a **Java EE E-commerce project** using **MySQL (via Docker)** as the dat
 
 ---
 
----
 
 ## 🛠️ Prerequisites
 
