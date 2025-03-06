@@ -1,5 +1,5 @@
 package controller;
-
+//im too lazy so i put everything here , u can create services that will be called under the doGet do Post w kol
 import dao.ProduitDAO;
 import model.Produit;
 
@@ -34,7 +34,7 @@ public class ProduitServlet extends HttpServlet {
                 case "delete":
                     deleteProduit(request, response);
                     break;
-                case "details":  // New case for showing product details
+                case "details":
                     showDetails(request, response);
                     break;
                 default:
@@ -75,14 +75,12 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
-    // Display all products
     private void listProduits(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("produits", produitDAO.getAllProduits());
         request.getRequestDispatcher("/listeProduits.jsp").forward(request, response);
     }
 
-    // Show the edit form for a specific product
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -95,7 +93,7 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
-    // Add a new product
+
     private void addProduit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         Produit produit = new Produit();
@@ -110,7 +108,7 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
-    // Update an existing product
+
     private void updateProduit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -131,7 +129,6 @@ public class ProduitServlet extends HttpServlet {
         }
     }
 
-    // Delete a product
     private void deleteProduit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -139,7 +136,6 @@ public class ProduitServlet extends HttpServlet {
         response.sendRedirect("produits");
     }
 
-    // Show product details
     private void showDetails(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -149,11 +145,11 @@ public class ProduitServlet extends HttpServlet {
             request.setAttribute("produit", produit);
             request.getRequestDispatcher("/detailsProduit.jsp").forward(request, response);
         } else {
-            response.sendRedirect("produits");  // Redirect if product not found
+            response.sendRedirect("produits");
         }
     }
 
-    // Populate the product object with data from the form
+
     private void populateProduitFromRequest(Produit produit, HttpServletRequest request) {
         produit.setNom(request.getParameter("nom"));
         produit.setDescription(request.getParameter("description"));
@@ -172,12 +168,11 @@ public class ProduitServlet extends HttpServlet {
         produit.setImage(request.getParameter("image"));
     }
 
-    // Validate product data
+
     private boolean isValidProduit(Produit produit) {
         return produit.getNom() != null && !produit.getNom().trim().isEmpty() && produit.getPrix() > 0;
     }
 
-    // Error handling method
     private void handleError(HttpServletRequest request, HttpServletResponse response, Exception e)
             throws ServletException, IOException {
         e.printStackTrace();
