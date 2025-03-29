@@ -1,12 +1,11 @@
 package com.ecommerce.presentation;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-/**
- * Controller pour la déconnexion (invalider la session).
- */
+@WebServlet("/DeconnexionController")
 public class DeconnexionController extends HttpServlet {
 
     @Override
@@ -18,7 +17,7 @@ public class DeconnexionController extends HttpServlet {
             session.invalidate();
         }
 
-        // Redirection vers la page de login ou d'accueil
+        // Optionally redirect to login or Bienvenue
         response.sendRedirect(request.getContextPath() + "/login");
     }
 }

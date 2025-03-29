@@ -5,40 +5,43 @@ import com.ecommerce.metier.IGestionArticle;
 import com.ecommerce.metier.GestionArticle;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
+@WebServlet("/ArticleController")
 public class ArticleController extends HttpServlet {
 
     private IGestionArticle gestionArticle;
 
     @Override
     public void init() throws ServletException {
-        // Now works fine with no-args constructor
-        this.gestionArticle = new GestionArticle();
+        gestionArticle = new GestionArticle();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Vérifier si l'utilisateur est connecté (sinon redirection)
+        // Check user session if needed
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("username") == null) {
+            // Not logged in => redirect
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
 
+        // Determine the 'action' parameter to decide what's next
         String action = request.getParameter("action");
         if (action == null || action.isEmpty()) {
-            // Liste des articles
+            // Show the list
             List<Article> articles = gestionArticle.getAllArticles();
             request.setAttribute("articles", articles);
             request.getRequestDispatcher("/WEB-INF/views/listeArticles.jsp").forward(request, response);
         }
         else if (action.equals("detail")) {
-            // Détail d'un article
+            // Show detail of a single article
             String idStr = request.getParameter("id");
             if (idStr != null) {
                 int id = Integer.parseInt(idStr);
@@ -46,16 +49,15 @@ public class ArticleController extends HttpServlet {
                 request.setAttribute("article", art);
                 request.getRequestDispatcher("/WEB-INF/views/detailArticle.jsp").forward(request, response);
             } else {
-                // Pas d'id => liste
                 response.sendRedirect(request.getContextPath() + "/ArticleController");
             }
         }
         else if (action.equals("ajout")) {
-            // Formulaire d'ajout
+            // Show add form
             request.getRequestDispatcher("/WEB-INF/views/ajoutArticle.jsp").forward(request, response);
         }
         else {
-            // Action inconnue => liste
+            // Unknown action => go back to the list
             response.sendRedirect(request.getContextPath() + "/ArticleController");
         }
     }
@@ -64,6 +66,7 @@ public class ArticleController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Check session again for POST
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("username") == null) {
             response.sendRedirect(request.getContextPath() + "/login");
@@ -76,24 +79,23 @@ public class ArticleController extends HttpServlet {
         }
 
         if (action.equals("ajout")) {
-            // Récupérer les données du formulaire
+            // Creating a new article
             String titre = request.getParameter("titre");
-            String desc  = request.getParameter("description");
-            double prix  = Double.parseDouble(request.getParameter("prix"));
+            String description = request.getParameter("description");
+            double prix = Double.parseDouble(request.getParameter("prix"));
 
-            // Créer l'article
             Article article = new Article();
             article.setTitre(titre);
-            article.setDescription(desc);
+            article.setDescription(description);
             article.setPrix(prix);
 
             gestionArticle.creerArticle(article);
 
-            // Redirection vers la liste
+            // Redirect to the list
             response.sendRedirect(request.getContextPath() + "/ArticleController");
         }
         else {
-            // Autres actions => liste
+            // Other POST actions not implemented
             response.sendRedirect(request.getContextPath() + "/ArticleController");
         }
     }

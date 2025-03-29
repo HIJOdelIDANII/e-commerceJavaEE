@@ -1,19 +1,17 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Bienvenue</title>
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css"/>
 </head>
 <body>
-<!-- Optional Navbar -->
 <div class="navbar">
-  <a href="${pageContext.request.contextPath}/Bienvenue">Accueil</a>
-  <a href="${pageContext.request.contextPath}/login">Se connecter</a>
-  <a href="${pageContext.request.contextPath}/inscription">S'inscrire</a>
-  <a href="${pageContext.request.contextPath}/ArticleController">Articles</a>
-  <a href="${pageContext.request.contextPath}/DeconnexionController">Se déconnecter</a>
+  <a href="<%= request.getContextPath() %>/Bienvenue">Accueil</a>
+  <a href="<%= request.getContextPath() %>/login">Se connecter</a>
+  <a href="<%= request.getContextPath() %>/inscription">S'inscrire</a>
+  <a href="<%= request.getContextPath() %>/ArticleController">Articles</a>
+  <a href="<%= request.getContextPath() %>/DeconnexionController">Se déconnecter</a>
 </div>
 
 <div class="container">

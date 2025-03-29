@@ -14,9 +14,9 @@ public class GestionArticleDAO implements IGestionArticleDAO {
         try {
             Class.forName("com.mysql.jdbc.Driver"); // or com.mysql.cj.jdbc.Driver
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/ecommerce",
+                    "jdbc:mysql://localhost:3333/ecommerce",
                     "root",
-                    ""
+                    "root"
             );
         } catch (Exception e) {
             e.printStackTrace();
