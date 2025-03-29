@@ -1,0 +1,100 @@
+/* style.css */
+
+/* Base styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* A container class for spacing */
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    margin: 0 0 15px 0;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table thead {
+    background: #eee;
+}
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+table tr:hover {
+    background: #fafafa;
+}
+
+/* Form styling */
+form label {
+    display: inline-block;
+    width: 120px;
+}
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="number"] {
+    padding: 6px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+form input[type="submit"] {
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+form input[type="submit"]:hover {
+    background: #004a99;
+}
+
+/* Notification or error messages */
+.errorMsg {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.successMsg {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Links / nav bar */
+.navbar {
+    background: #222;
+    padding: 10px 20px;
+    color: #fff;
+}
+.navbar a {
+    color: #fff;
+    margin-right: 15px;
+}
+.navbar a:hover {
+    opacity: 0.8;
+}
