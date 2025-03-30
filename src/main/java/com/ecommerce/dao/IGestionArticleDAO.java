@@ -7,5 +7,5 @@ public interface IGestionArticleDAO {
     void creerArticle(Article a);
     List<Article> getAllArticles();
     Article getArticleById(int id);
-    void supprimerArticle(int id); // <-- add this
+    void supprimerArticle(int id);
 }

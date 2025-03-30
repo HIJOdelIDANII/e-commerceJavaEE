@@ -7,17 +7,11 @@ public class GestionUser implements IGestionUser {
 
     private IGestionUserDAO userDAO;
 
-    /**
-     * No-args constructor for default usage in controllers:
-     * e.g.  this.gestionUser = new GestionUser();
-     */
+
     public GestionUser() {
         this.userDAO = new GestionUserDAO();
     }
 
-    /**
-     * Optional constructor to allow explicit DAO injection.
-     */
     public GestionUser(IGestionUserDAO userDAO) {
         this.userDAO = userDAO;
     }

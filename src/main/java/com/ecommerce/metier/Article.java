@@ -6,7 +6,7 @@ public class Article {
     private String description;
     private double prix;
 
-    // Constructeurs
+
     public Article() {}
 
     public Article(int id, String titre, String description, double prix) {
@@ -15,8 +15,6 @@ public class Article {
         this.description = description;
         this.prix = prix;
     }
-
-    // Getters et Setters
     public int getId() {
         return id;
     }

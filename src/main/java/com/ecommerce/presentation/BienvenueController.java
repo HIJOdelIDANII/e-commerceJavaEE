@@ -13,7 +13,6 @@ public class BienvenueController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Optionally do some logic, then forward
         request.getRequestDispatcher("/WEB-INF/views/Bienvenue.jsp").forward(request, response);
     }
 }
