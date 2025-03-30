@@ -4,9 +4,8 @@ import com.ecommerce.metier.Article;
 import java.util.List;
 
 public interface IGestionArticleDAO {
-    void ajouterArticle(Article article);
-    Article trouverArticleParId(int id);
-    List<Article> listerArticles();
-    void modifierArticle(Article article);
-    void supprimerArticle(int id);
+    void creerArticle(Article a);
+    List<Article> getAllArticles();
+    Article getArticleById(int id);
+    void supprimerArticle(int id); // <-- add this
 }

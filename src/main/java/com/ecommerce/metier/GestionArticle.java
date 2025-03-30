@@ -9,44 +9,27 @@ public class GestionArticle implements IGestionArticle {
 
     private IGestionArticleDAO articleDAO;
 
-    /**
-     * No-args constructor for default usage in controllers:
-     * e.g.  this.gestionArticle = new GestionArticle();
-     */
     public GestionArticle() {
-        // Provide a default DAO implementation
-        this.articleDAO = new GestionArticleDAO();
-    }
-
-    /**
-     * Optional constructor to allow explicit DAO injection.
-     */
-    public GestionArticle(IGestionArticleDAO articleDAO) {
-        this.articleDAO = articleDAO;
+        articleDAO = new GestionArticleDAO();
     }
 
     @Override
-    public void creerArticle(Article article) {
-        articleDAO.ajouterArticle(article);
-    }
-
-    @Override
-    public Article getArticleById(int id) {
-        return articleDAO.trouverArticleParId(id);
+    public void creerArticle(Article a) {
+        articleDAO.creerArticle(a);
     }
 
     @Override
     public List<Article> getAllArticles() {
-        return articleDAO.listerArticles();
+        return articleDAO.getAllArticles();
     }
 
     @Override
-    public void updateArticle(Article article) {
-        articleDAO.modifierArticle(article);
+    public Article getArticleById(int id) {
+        return articleDAO.getArticleById(id);
     }
 
     @Override
-    public void deleteArticle(int id) {
+    public void supprimerArticle(int id) {
         articleDAO.supprimerArticle(id);
     }
 }
