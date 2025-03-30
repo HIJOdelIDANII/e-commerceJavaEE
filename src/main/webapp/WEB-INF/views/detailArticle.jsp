@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ page import="com.ecommerce.metier.Article" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,5 +16,23 @@
 <div class="container">
     <h1>Détails de l'Article</h1>
 
-    <p><strong>ID:</strong> ${article.id}</p>
-    <p><strong>Titre:</strong> ${article.titre}</
+    <%
+        Article article = (Article) request.getAttribute("article");
+        if (article != null) {
+    %>
+    <p><strong>ID:</strong> <%= article.getId() %></p>
+    <p><strong>Titre:</strong> <%= article.getTitre() %></p>
+    <p><strong>Description:</strong> <%= article.getDescription() %></p>
+    <p><strong>Prix:</strong> <%= article.getPrix() %></p>
+    <%
+    } else {
+    %>
+    <p>Aucun article à afficher.</p>
+    <%
+        }
+    %>
+
+    <p><a href="<%= request.getContextPath() %>/ArticleController">Retour à la liste</a></p>
+</div>
+</body>
+</html>

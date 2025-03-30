@@ -10,7 +10,7 @@ public class GestionUserDAO implements IGestionUserDAO {
 
     public GestionUserDAO() {
         try {
-            Class.forName("com.mysql.jdbc.Driver"); // or com.mysql.cj.jdbc.Driver
+            Class.forName("com.mysql.cj.jdbc.Driver"); // or com.mysql.cj.jdbc.Driver
             // Adapt DB URL, user, password to your setup
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3333/ecommerce",

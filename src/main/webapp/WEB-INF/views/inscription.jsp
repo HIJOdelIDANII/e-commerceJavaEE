@@ -25,3 +25,7 @@
     <input type="email" id="email" name="email" required /><br/><br/>
 
     <input type="submit" value="S'inscrire"/>
+  </form>
+</div>
+</body>
+</html>

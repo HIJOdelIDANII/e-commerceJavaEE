@@ -16,7 +16,6 @@
     <h1>Ajouter un Article</h1>
 
     <form action="<%= request.getContextPath() %>/ArticleController" method="post">
-        <!-- Champ caché pour action=ajout -->
         <input type="hidden" name="action" value="ajout" />
 
         <label for="titre">Titre :</label>
